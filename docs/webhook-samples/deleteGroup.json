@@ -1,0 +1,8 @@
+{
+	"id": "prod",
+	"username": "jhuckaby",
+	"text": "ConfSync: Configuration target group deleted: `prod`",
+	"code": "deleteGroup",
+	"msg": "prod",
+	"content": "ConfSync: Configuration target group deleted: `prod`"
+}

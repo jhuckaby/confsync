@@ -1,0 +1,14 @@
+{
+	"title": "Development",
+	"env": {
+		"HOSTNAME": "\\.dev\\."
+	},
+	"id": "dev",
+	"username": "jhuckaby",
+	"modified": 1696287839.659,
+	"created": 1696287839.659,
+	"text": "Configuration target group added: `dev` (**Development**)",
+	"code": "addGroup",
+	"msg": "dev",
+	"content": "Configuration target group added: `dev` (**Development**)"
+}

@@ -1,0 +1,8 @@
+{
+	"id": "myapp",
+	"username": "jhuckaby",
+	"text": "ConfSync: Configuration file deleted: `myapp`",
+	"code": "deleteConfigFile",
+	"msg": "myapp",
+	"content": "ConfSync: Configuration file deleted: `myapp`"
+}

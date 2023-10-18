@@ -1,0 +1,13 @@
+{
+	"id": "myapp",
+	"username": "jhuckaby",
+	"groups": [
+		"dev",
+		"prod"
+	],
+	"rev": "r1",
+	"text": "Configuration file `myapp` revision `r1` deployed by `jhuckaby` to groups: **dev,prod**",
+	"code": "deploy",
+	"msg": "myapp",
+	"content": "Configuration file `myapp` revision `r1` deployed by `jhuckaby` to groups: **dev,prod**"
+}

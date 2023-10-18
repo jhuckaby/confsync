@@ -1,0 +1,24 @@
+{
+	"message": "Initial revision.",
+	"id": "myapp",
+	"username": "jhuckaby",
+	"base": {
+		"logging": {
+			"debug_level": 9
+		},
+		"cache": {
+			"enabled": true,
+			"memory": "10 MB"
+		},
+		"features": {
+			"new_layout": false,
+			"christmas_theme": false
+		}
+	},
+	"modified": 1696564814.615,
+	"rev": "r1",
+	"text": "Configuration file `myapp` revision `r1` pushed by `jhuckaby`: **Initial revision.**",
+	"code": "push",
+	"msg": "myapp",
+	"content": "Configuration file `myapp` revision `r1` pushed by `jhuckaby`: **Initial revision.**"
+}

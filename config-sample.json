@@ -1,0 +1,48 @@
+{
+	"log_dir": "logs",
+	"log_filename": "confsync.log",
+	"log_columns": ["hires_epoch", "date", "hostname", "pid", "component", "category", "code", "msg", "data"],
+	"debug_level": 9,
+	"color": true,
+	"cmd_suggest": true,
+	
+	"web_hooks": {},
+	
+	"web_hook_text_templates": {
+		"addGroup": "Configuration target group added: `[id]` (**[title]**)",
+		"updateGroup": "Configutation target group updated: `[id]` (**[title]**)",
+		"deleteGroup": "Configuration target group deleted: `[id]`",
+		"addConfigFile": "Configuration file added: `[id]` (**[title]**)",
+		"updateConfigFile": "Configuration file updated: `[id]` (**[title]**)",
+		"deleteConfigFile": "Configuration file deleted: `[id]`",
+		"push": "Configuration file `[id]` revision `[rev]` pushed by `[username]`: **[message]**",
+		"deploy": "Configuration file `[id]` revision `[rev]` deployed by `[username]` to groups: **[groups]**"
+	},
+	
+	"Storage": {
+		"transactions": true,
+		"trans_auto_recover": true,
+		"concurrency": 32,
+		"list_page_size": 100,
+		
+		"engine": "S3",
+		"AWS": {
+			"region": "us-west-1",
+			"credentials": {
+				"accessKeyId": "YOUR_AWS_ACCESS_KEY_HERE",
+				"secretAccessKey": "YOUR_AWS_SECRET_KEY_HERE"
+			},
+			"connectTimeout": 5000,
+			"socketTimeout": 5000,
+			"maxAttempts": 5
+		},
+		"S3": {
+			"keyPrefix": "YOUR_S3_KEY_PREFIX_HERE",
+			"fileExtensions": true,
+			"pretty": true,
+			"params": {
+				"Bucket": "YOUR_S3_BUCKET_HERE"
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"title": "My Great App",
+	"id": "myapp",
+	"username": "jhuckaby",
+	"path": "/opt/myapp/conf/config.json",
+	"modified": 1696441493.515,
+	"created": 1696441493.515,
+	"live": {},
+	"text": "Configuration file added: `myapp` (**My Great App**)",
+	"code": "addConfigFile",
+	"msg": "myapp",
+	"content": "Configuration file added: `myapp` (**My Great App**)"
+}

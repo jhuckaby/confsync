@@ -1,0 +1,32 @@
+{
+	"name": "confsync",
+	"version": "1.0.0",
+	"description": "Manage config files in AWS S3.",
+	"author": "Joseph Huckaby <jhuckaby@gmail.com>",
+	"homepage": "https://github.com/jhuckaby/confsync",
+	"license": "MIT",
+	"main": "index.js",
+	"bin": "cli.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jhuckaby/confsync"
+	},
+	"bugs": {
+		"url": "https://github.com/jhuckaby/confsync/issues"
+	},
+	"keywords": [
+		"config", "s3"
+	],
+	"dependencies": {
+		"class-plus": "^2.0.0",
+		"cli-highlight": "2.1.11",
+		"diff": "5.0.0",
+		"dotenv": "16.3.1",
+		"json5": "2.2.3",
+		"pixl-cli": "^1.0.15",
+		"pixl-logger": "^2.0.2",
+		"pixl-request": "^2.0.3",
+		"pixl-server-storage": "^3.1.16",
+		"pixl-tools": "^1.0.35"
+	}
+}

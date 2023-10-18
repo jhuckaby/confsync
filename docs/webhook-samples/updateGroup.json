@@ -1,0 +1,14 @@
+{
+	"title": "Production",
+	"env": {
+		"HOSTNAME": "\\.prod\\."
+	},
+	"id": "prod",
+	"username": "jhuckaby",
+	"modified": 1696876722.727,
+	"created": 1696440917.819,
+	"text": "Configutation target group updated: `prod` (**Production**)",
+	"code": "updateGroup",
+	"msg": "prod",
+	"content": "Configutation target group updated: `prod` (**Production**)"
+}
