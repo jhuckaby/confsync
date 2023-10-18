@@ -7,6 +7,17 @@ This document contains a tutorial / walkthrough of the ConfSync CLI, and include
 > &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
 
 <!-- toc -->
+- [Basic Usage](#basic-usage)
+	* [Status](#status)
+	* [Updates](#updates)
+	* [Fetching](#fetching)
+	* [Diffs](#diffs)
+	* [Revision History](#revision-history)
+	* [Clones](#clones)
+	* [Overrides](#overrides)
+	* [Partial Deployments](#partial-deployments)
+	* [Gradual Deployments](#gradual-deployments)
+- [The End](#the-end)
 
 ## Basic Usage
 

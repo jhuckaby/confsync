@@ -46,6 +46,23 @@ The documentation is split up across these files:
 Here is the table of contents for this document:
 
 <!-- toc -->
+* [Architecture](#architecture)
+	* [Glossary](#glossary)
+- [Setup](#setup)
+- [Configuration](#configuration)
+	* [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Satellite](#satellite)
+- [Install Notifications](#install-notifications)
+	* [PID File / Signal](#pid-file--signal)
+	* [Web Request](#web-request)
+	* [Shell Exec](#shell-exec)
+- [Web Hooks](#web-hooks)
+- [Logging](#logging)
+- [Upgrading](#upgrading)
+- [Estimated S3 Costs](#estimated-s3-costs)
+- [See Also](#see-also)
+- [License](#license)
 
 ### Architecture
 

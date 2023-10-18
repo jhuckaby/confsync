@@ -7,6 +7,23 @@ This document contains a complete CLI reference for ConfSync.
 > &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
 
 <!-- toc -->
+- [Commands](#commands)
+	* [config](#config)
+	* [list](#list)
+	* [group add](#group-add)
+	* [group update](#group-update)
+	* [group delete](#group-delete)
+	* [group get](#group-get)
+	* [add](#add)
+	* [update](#update)
+	* [delete](#delete)
+	* [info](#info)
+	* [push](#push)
+	* [clone](#clone)
+	* [deploy](#deploy)
+	* [history](#history)
+	* [get](#get)
+	* [diff](#diff)
 
 ## Commands
 

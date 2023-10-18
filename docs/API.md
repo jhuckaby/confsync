@@ -7,6 +7,22 @@ This document contains a complete API reference for ConfSync, specifically for u
 > &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
 
 <!-- toc -->
+- [Installation](#installation)
+- [Class Methods](#class-methods)
+	* [startup](#startup)
+	* [getData](#getdata)
+	* [addGroup](#addgroup)
+	* [updateGroup](#updategroup)
+	* [deleteGroup](#deletegroup)
+	* [addConfigFile](#addconfigfile)
+	* [updateConfigFile](#updateconfigfile)
+	* [deleteConfigFile](#deleteconfigfile)
+	* [push](#push)
+	* [deploy](#deploy)
+	* [history](#history)
+	* [get](#get)
+	* [find](#find)
+	* [shutdown](#shutdown)
 
 ## Installation
 

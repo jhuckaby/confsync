@@ -7,6 +7,10 @@ This document describes the internal data structures used in ConfSync, specifica
 > &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
 
 <!-- toc -->
+- [Master Data](#master-data)
+	* [Groups](#groups)
+	* [Files](#files)
+- [File Revisions](#file-revisions)
 
 ## Master Data
 

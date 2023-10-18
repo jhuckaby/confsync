@@ -7,6 +7,14 @@ This document contains advanced features, tips and tricks for ConfSync.
 > &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
 
 <!-- toc -->
+- [Features](#features)
+	* [File Env Variables](#file-env-variables)
+	* [Multi-Group Overrides](#multi-group-overrides)
+	* [Aborting Gradual Deploys](#aborting-gradual-deploys)
+	* [Non-AWS S3 Providers](#non-aws-s3-providers)
+	* [Slack Notifications](#slack-notifications)
+	* [Discord Notifications](#discord-notifications)
+	* [GitHub Integration](#github-integration)
 
 ## Features
 
