@@ -372,6 +372,7 @@ The `push` command pushes a new revision for a specific file.  ConfSync keeps th
 | `username` | String | The username who is pushing the file.  This defaults to the current shell user. |
 | `overrides` | String | Optionally specify an overrides file, if applicable for your config.  See [Overrides](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#overrides) for details. |
 | `message` | String | An optional short message to accompany the revision, briefly describing what changed. |
+| `git` | Boolean | Set this to `true` to automatically populate the `username` and `message` properties from the latest Git commit (assuming you're pushing from a Git repo). |
 | `deploy` | Mixed | Optionally [deploy](#deploy) the revision when pushing.  This can also be set to a comma-separated list of groups for a [partial deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#partial-deployments). |
 | `confirm` | Boolean | Include this argument to confirm the push operation.  When omitted, no action is taken and a preview diff is displayed. |
 

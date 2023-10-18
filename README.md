@@ -30,6 +30,7 @@ ConfSync can be used as a basic [feature flag](https://en.wikipedia.org/wiki/Fea
 - Simple and easy rollbacks.
 - Show diffs between file revisions.
 - Web hooks for all actions.
+- GitHub Integration.
 
 ### Table of Contents
 

@@ -240,7 +240,9 @@ Alternatively, if you want to enable Slack notifications globally for all action
 }
 ```
 
-To customize the web hook summary text, see the `web_hook_text_templates` property in your `config.json` file.
+To customize the web hook message text, see the `web_hook_text_templates` property in your `config.json` file.
+
+See [Web Hooks](https://github.com/jhuckaby/confsync#web-hooks) for more details.
 
 ### Discord Notifications
 
@@ -270,15 +272,30 @@ Alternatively, if you want to enable Discord notifications globally for all acti
 }
 ```
 
-To customize the web hook summary text, see the `web_hook_text_templates` property in your `config.json` file.
+To customize the web hook message text, see the `web_hook_text_templates` property in your `config.json` file.
+
+See [Web Hooks](https://github.com/jhuckaby/confsync#web-hooks) for more details.
 
 ### GitHub Integration
 
-TBD -- work in progress!
+ConfSync can be integrated into [GitHub Actions](https://github.com/features/actions), so you can have GitHub automatically push a new file revision into ConfSync for every git push (or other action of your choice).  Here is how to set that up:
 
-https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions
+First, you'll need to add your AWS credentials into GitHub.  This is done via "secrets".  In your GitHub repo where you want the action added, click on the **Settings** tab, then expand the **Secrets and Variables** section in the sidebar, then click on the **Actions** item.
 
-`.github/workflows`
+Click the **New Repository Secret** button and add two secrets, named thusly, and populated with your own AWS credentials:
+
+- `AWSAccessKeyId`
+- `AWSSecretAccessKey`
+
+You can now use these variables in your own GitHub Actions Workflows using this syntax: `${{ secrets.AWSAccessKeyId }}`.  For more information about secrets, see [Using Secrets in GitHub Actions](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+
+Now we need to create a GitHub Actions Workflow script, which is in YAML format.  Create the following folders in your repo, if they do not already exist:
+
+```
+mkdir -p .github/workflows
+```
+
+Inside the `workflows` folder, create a file named `confsync-push.yaml` (or any name you want), and paste in this text:
 
 ```yaml
 name: ConfSync Push
@@ -299,7 +316,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - run: npx confsync push myapp $GITHUB_WORKSPACE/your-config-file.json --message "GitHub Push $GITHUB_SHA"
+      - run: npx confsync push YOUR_FILE_ID YOUR_REPO_FILE_HERE.json --git --confirm
 ```
 
-If you want GitHub Actions to also deploy your files on push, add `--deploy` to the npx command above.
+You'll need to make a few text replacements in your file:
+
+- Replace `YOUR_S3_KEY_PREFIX_HERE` with your S3 key prefix (copy from your ConfSync config.json file).
+- Replace `YOUR_S3_BUCKET_HERE` with your S3 bucket (copy from your ConfSync config.json file).
+- Replace `YOUR_FILE_ID` with the ConfSync File ID of the file you are pushing (this should have been previously added via the ConfSync CLI).
+- Replace `YOUR_REPO_FILE_HERE.json` with the path to your configuration file in your GitHub repo, relative to the repo root.
+- If you want GitHub Actions to also deploy your files on every push, add `--deploy` to the npx command above.
+
+And that's it!  On your next GitHub push (or other action of your choice), GitHub will automatically run the action, and push your file up to ConfSync.
+
+To check on the status of an action, click on the **Actions** tab in your repo, then click on **ConfSync Push** in the sidebar, then click on the latest (top) entry in the Workflows table.  Finally, click on **confsync-push** to expand the details and see the job log:
+
+![GA Workflow Log](http://pixlcore.com/software/confsync/screenshots/github-actions-workflow-log.png)
