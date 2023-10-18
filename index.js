@@ -492,9 +492,6 @@ module.exports = Class({
 		data.id = this.normalizeFileID(data.id);
 		data.modified = Tools.timeNow();
 		
-		// allow the push message to be an env var
-		if (!data.message && process.env.CONFSYNC_message) data.message = process.env.CONFSYNC_message;
-		
 		this.storage.begin('master', function(err, trans) {
 			if (err) return self.doError('storage', err, callback);
 			

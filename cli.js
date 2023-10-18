@@ -32,7 +32,7 @@ for (var key in cli.args) {
 if (!args.other || !args.other.length || args.help || args.h) args.other = ['help'];
 var cmd = args.other.shift().toLowerCase();
 
-var USERNAME = process.env.SUDO_USER || process.env.USER || process.env.USERNAME || '';
+var USERNAME = process.env.CONFSYNC_username || process.env.SUDO_USER || process.env.USER || process.env.USERNAME || '';
 var DATE_FMT = '[yyyy]/[mm]/[dd] [hour12]:[mi] [AMPM]';
 
 var CMD_HELP_TEXT = {
@@ -705,6 +705,9 @@ var app = {
 		if (req.deploy && (typeof(req.deploy) == 'string')) {
 			req.deploy = req.deploy.split(',');
 		}
+		
+		// allow the push message to be an env var
+		if (!req.message && process.env.CONFSYNC_message) req.message = process.env.CONFSYNC_message;
 		
 		this.checkSupportedParams(req, ['id', 'username', 'base', 'overrides', 'message', 'deploy', 'commit'], 'push');
 		
