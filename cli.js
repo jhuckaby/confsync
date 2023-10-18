@@ -677,6 +677,16 @@ var app = {
 		var self = this;
 		var req = Tools.copyHashRemoveKeys( args, { other:1 } );
 		req.id = req.id || args.other.shift() || this.dieUsage('push');
+		
+		// allow the username and message to come from the most recent git commit
+		if (!req.username && req.git) {
+			req.username = cp.execSync('git log -1 --pretty=format:"%an"').toString().trim();
+		}
+		if (!req.message && req.git) {
+			req.message = cp.execSync('git log -1 --pretty=%B | head -1').toString().trim();
+		}
+		delete req.git;
+		
 		if (!req.username) req.username = USERNAME;
 		if (req.confirm) { req.commit = req.confirm; delete req.confirm; }
 		
