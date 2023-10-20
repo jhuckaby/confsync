@@ -404,13 +404,13 @@ To setup web hooks in the CLI / API, edit your `config.json` file and populate t
 }
 ```
 
-You can alternatively add hooks using the [config](#config) command:
+You can alternatively add hooks using the [config](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#config) command:
 
 ```
 $ confsync config --web_hooks.deploy "https://hooks.slack.com/services/TO8ZZFDBQ/BC6ZZNG14/pJKFjZZI"
 ```
 
-This example adds a web hook for the [deploy](#deploy) action specifically, and targets a custom [Slack Bot](https://api.slack.com/messaging/webhooks).  The web request itself will be a `HTTP POST`, and the payload will be a JSON document that describes the action that took place.  Example request body (pretty-printed):
+This example adds a web hook for the [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) action specifically, and targets a custom [Slack Bot](https://api.slack.com/messaging/webhooks).  The web request itself will be a `HTTP POST`, and the payload will be a JSON document that describes the action that took place.  Example request body (pretty-printed):
 
 ```json
 {

@@ -474,7 +474,7 @@ The `deploy` command deploys a specific file revision live, meaning it actually 
 | `id` | String | **(Required)** The File ID, which should be alphanumeric plus dash.  You can specify this as an "inline" argument without the `--id` prefix, as shown above. |
 | `username` | String | The username who is pushing the file.  This defaults to the current shell user. |
 | `rev` | String | The revision to deploy, e.g. `r1`.  This defaults to the latest revision of the specified file. |
-| `groups` | String | Optionally limit the deployment to specific target groups (as a comma-separated list).  See [Partial Deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#partial-deployments) for details. |
+| `groups` | String | Optionally limit the deployment to specific target groups (as a comma-separated list).  See [Partial Deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#partial-deployments) for details.  This defaults to **all** groups. |
 | `duration` | Mixed | Optionally perform a [Gradual Deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#gradual-deployments), by specifying the desired time duration here. |
 
 Here is an example deploy:
