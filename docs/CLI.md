@@ -4,7 +4,7 @@ This document contains a complete CLI reference for ConfSync.
 
 ## Table of Contents
 
-> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
+> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/main/README.md)
 
 <!-- toc -->
 - [Commands](#commands)
@@ -370,10 +370,10 @@ The `push` command pushes a new revision for a specific file.  ConfSync keeps th
 | `id` | String | **(Required)** The File ID, which should be alphanumeric plus dash.  You can specify this as an "inline" argument without the `--id` prefix, as shown above. |
 | `base` | String | **(Required)** The local file path to load and use as the base file content.  You can specify this as an "inline" argument without the `--base` prefix, as shown above. |
 | `username` | String | The username who is pushing the file.  This defaults to the current shell user. |
-| `overrides` | String | Optionally specify an overrides file, if applicable for your config.  See [Overrides](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#overrides) for details. |
+| `overrides` | String | Optionally specify an overrides file, if applicable for your config.  See [Overrides](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#overrides) for details. |
 | `message` | String | An optional short message to accompany the revision, briefly describing what changed. |
 | `git` | Boolean | Set this to `true` to automatically populate the `username` and `message` properties from the latest Git commit (assuming you're pushing from a Git repo). |
-| `deploy` | Mixed | Optionally [deploy](#deploy) the revision when pushing.  This can also be set to a comma-separated list of groups for a [partial deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#partial-deployments). |
+| `deploy` | Mixed | Optionally [deploy](#deploy) the revision when pushing.  This can also be set to a comma-separated list of groups for a [partial deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#partial-deployments). |
 | `confirm` | Boolean | Include this argument to confirm the push operation.  When omitted, no action is taken and a preview diff is displayed. |
 
 Here is an example push:
@@ -420,7 +420,7 @@ The `clone` command makes a copy of an existing revision, applies changes you sp
 | `base.*` | Mixed | **(Required)** Specify one or more changes to apply to the file, using JSON dot path notation.  See below. |
 | `overrides.*` | Mixed | Optionally specify changes for the file's overrides as well.  See below. |
 | `message` | String | An optional short message to accompany the revision, briefly describing what changed. |
-| `deploy` | Mixed | Optionally [deploy](#deploy) the revision when pushing.  This can also be set to a comma-separated list of groups for a [partial deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#partial-deployments). |
+| `deploy` | Mixed | Optionally [deploy](#deploy) the revision when pushing.  This can also be set to a comma-separated list of groups for a [partial deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#partial-deployments). |
 | `confirm` | Boolean | Include this argument to confirm the push operation.  When omitted, no action is taken and a preview diff is displayed. |
 
 Here is an example clone:
@@ -449,7 +449,7 @@ $ confsync clone myapp --base.features.halloween_theme true --message "Enabled h
 ✅ Success: Configuration file `myapp` revision `r3` pushed by `jhuckaby`: Enabled halloween theme.
 ```
 
-You can also use `clone` to set or update [overrides](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#overrides).  For those, use this syntax:
+You can also use `clone` to set or update [overrides](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#overrides).  For those, use this syntax:
 
 ```
 --overrides.GROUP.PATH "VALUE"
@@ -474,8 +474,8 @@ The `deploy` command deploys a specific file revision live, meaning it actually 
 | `id` | String | **(Required)** The File ID, which should be alphanumeric plus dash.  You can specify this as an "inline" argument without the `--id` prefix, as shown above. |
 | `username` | String | The username who is pushing the file.  This defaults to the current shell user. |
 | `rev` | String | The revision to deploy, e.g. `r1`.  This defaults to the latest revision of the specified file. |
-| `groups` | String | Optionally limit the deployment to specific target groups (as a comma-separated list).  See [Partial Deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#partial-deployments) for details. |
-| `duration` | Mixed | Optionally perform a [Gradual Deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#gradual-deployments), by specifying the desired time duration here. |
+| `groups` | String | Optionally limit the deployment to specific target groups (as a comma-separated list).  See [Partial Deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#partial-deployments) for details. |
+| `duration` | Mixed | Optionally perform a [Gradual Deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#gradual-deployments), by specifying the desired time duration here. |
 
 Here is an example deploy:
 
@@ -536,7 +536,7 @@ The `get` command fetches a single revision of your file, and displays informati
 |----------|------|-------------|
 | `id` | String | **(Required)** The File ID, which should be alphanumeric plus dash.  You can specify this as an "inline" argument without the `--id` prefix, as shown above. |
 | `rev` | String | **(Required)** The File Revision, which should be in the form `r1`.  You can specify this as an "inline" argument without the `--rev` prefix, as shown above. |
-| `groups` | String | Optionally specify group IDs (comma-separated) to preview an override transform.  See [Overrides](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#overrides) for details. |
+| `groups` | String | Optionally specify group IDs (comma-separated) to preview an override transform.  See [Overrides](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#overrides) for details. |
 | `save` | String | Optionally specify a filename to save the file locally. |
 
 Here is an example:

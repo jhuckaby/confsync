@@ -4,7 +4,7 @@ This document contains a tutorial / walkthrough of the ConfSync CLI, and include
 
 ## Table of Contents
 
-> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
+> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/main/README.md)
 
 <!-- toc -->
 - [Basic Usage](#basic-usage)
@@ -23,7 +23,7 @@ This document contains a tutorial / walkthrough of the ConfSync CLI, and include
 
 Here is a quick tutorial on using the ConfSync CLI.
 
-Once you have ConfSync installed and S3 configured, do a [list](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#list) to make sure everything is working:
+Once you have ConfSync installed and S3 configured, do a [list](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#list) to make sure everything is working:
 
 ```
 $ confsync list
@@ -48,7 +48,7 @@ Add new config file: confsync add CONFIG_ID --title 'YOUR CONFIG TITLE' --path /
 
 For the remainder of this tutorial, we'll show the command and response together, and with the headers and footers chopped off (for brevity).
 
-So, we've got an empty slate -- no groups and no files yet.  Let's add our first target group using [group add](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#group-add):
+So, we've got an empty slate -- no groups and no files yet.  Let's add our first target group using [group add](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#group-add):
 
 ```
 $ confsync group add "dev" --title "Development" --env.HOSTNAME '\.dev\.'
@@ -96,7 +96,7 @@ $ confsync group add "prod" --title "Production" --env.HOSTNAME '\.prod\.'
  └──────────────┴───────────────┘
 ```
 
-Now we have two groups that target different servers.  Here is what the [list](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#list) command shows now:
+Now we have two groups that target different servers.  Here is what the [list](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#list) command shows now:
 
 ```
 $ confsync list
@@ -113,7 +113,7 @@ $ confsync list
  (No files found.)
 ```
 
-Let's [add](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#add) our first configuration file.  Note that we're just *defining* the config file at this point -- we'll actually push a revision up and deploy it afterwards.
+Let's [add](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#add) our first configuration file.  Note that we're just *defining* the config file at this point -- we'll actually push a revision up and deploy it afterwards.
 
 ```
 $ confsync add "myapp" --title "My Great App" --dest /opt/myapp/conf/config.json --mode 600 --uid root
@@ -134,7 +134,7 @@ $ confsync add "myapp" --title "My Great App" --dest /opt/myapp/conf/config.json
  └─────────────────────────────────────────┘
 ```
 
-Now ConfSync knows about our config file, and where it should eventually live on our servers (`/opt/myapp/conf/config.json`).  It'll be written with mode `600` (octal) and user `root`.  But we haven't actually specified the config file contents yet.  That is done with a [push](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#push):
+Now ConfSync knows about our config file, and where it should eventually live on our servers (`/opt/myapp/conf/config.json`).  It'll be written with mode `600` (octal) and user `root`.  But we haven't actually specified the config file contents yet.  That is done with a [push](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#push):
 
 ```
 $ confsync push myapp ~/local/path/to/config.json --message "Initial revision."
@@ -142,7 +142,7 @@ $ confsync push myapp ~/local/path/to/config.json --message "Initial revision."
 ✅ Success: Configuration file `myapp` revision `r1` pushed by `jhuckaby`: Initial revision.
 ```
 
-We've now "pushed" a revision of our config file, which is now out on S3 and ready to install.  But ConfSync won't actually do anything until the revision is "deployed".  Deployment means that a specific revision is marked as the "live" one.  This is done by using the [deploy](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#deploy) command.  Here is how that goes:
+We've now "pushed" a revision of our config file, which is now out on S3 and ready to install.  But ConfSync won't actually do anything until the revision is "deployed".  Deployment means that a specific revision is marked as the "live" one.  This is done by using the [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) command.  Here is how that goes:
 
 ```
 $ confsync deploy myapp
@@ -152,7 +152,7 @@ $ confsync deploy myapp
 
 And that's it!  Our revision is now "live" across both of our groups (`dev` and `prod`) and our revision (`r1`) will actually be installed within a minute on all our servers.
 
-Note that we didn't even have to specify a revision or which groups to deploy to.  By default, the latest revision is deployed, and if no groups are specified, all are selected.  Here are a couple variations of the [deploy](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#deploy) command:
+Note that we didn't even have to specify a revision or which groups to deploy to.  By default, the latest revision is deployed, and if no groups are specified, all are selected.  Here are a couple variations of the [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) command:
 
 **Deploy a specific revision of a file:**
 
@@ -168,11 +168,11 @@ $ confsync deploy myapp --group dev
 
 Also note that when pushing a new revision, you can deploy it at the same time by adding `--deploy` or `--deploy GROUPS`.
 
-See [push](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#push) and [deploy](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#deploy) below for more details on these two commands.
+See [push](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#push) and [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) below for more details on these two commands.
 
 ### Status
 
-To see the status of your config file, use the [info](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#info) command:
+To see the status of your config file, use the [info](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#info) command:
 
 ```
 $ confsync info myapp
@@ -203,7 +203,7 @@ This shows you which revisions are live, in which target groups, and when they w
 
 ### Updates
 
-Let's push a new revision onto our config file.  Edit the file locally using your text editor of choice, and then [push](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#push) just like we did before:
+Let's push a new revision onto our config file.  Edit the file locally using your text editor of choice, and then [push](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#push) just like we did before:
 
 ```
 $ confsync push myapp ~/temp/myapp-config.json --message "Added halloween theme feature."
@@ -228,7 +228,7 @@ $ confsync myapp ~/temp/myapp-config.json --message "Added halloween theme featu
 ✅ Success: Configuration file `myapp` revision `r2` pushed by `jhuckaby`: Added halloween theme feature.
 ```
 
-Okay, so now our new revision is pushed, but what about our previous revision?  Don't worry, ConfSync keeps all revisions in S3, and our previous revision (`r1`) is still live, as you can see by the [info](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#info) command:
+Okay, so now our new revision is pushed, but what about our previous revision?  Don't worry, ConfSync keeps all revisions in S3, and our previous revision (`r1`) is still live, as you can see by the [info](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#info) command:
 
 ```
 $ confsync info myapp
@@ -259,7 +259,7 @@ As you can see, the latest revision is `r2` (the one we just pushed), but the li
 
 ### Fetching
 
-You can fetch any revision of your entire config file contents using the [get](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#get) command:
+You can fetch any revision of your entire config file contents using the [get](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#get) command:
 
 ```
 $ confsync get myapp r2
@@ -300,7 +300,7 @@ $ confsync get myapp r2 --save /tmp/myapp-r2.json
 
 ### Diffs
 
-If you want to see a "[diff](https://en.wikipedia.org/wiki/Diff)" of the changes between two revisions, use the [diff](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#diff) command.  By default, this shows the diff between the latest and previous revisions, but you can specify any two revisions you want to see:
+If you want to see a "[diff](https://en.wikipedia.org/wiki/Diff)" of the changes between two revisions, use the [diff](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#diff) command.  By default, this shows the diff between the latest and previous revisions, but you can specify any two revisions you want to see:
 
 ```
 $ confsync diff myapp r2 r1
@@ -324,7 +324,7 @@ Revision Diff:
 
 ### Revision History
 
-To see the complete revision history of your configuration file, use the [history](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#history) command:
+To see the complete revision history of your configuration file, use the [history](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#history) command:
 
 ```
 $ confsync history myapp
@@ -352,7 +352,7 @@ $ confsync history myapp
 
 **Note:** *This feature only works with JSON or JSON5 configuration files.*
 
-You can use the ConfSync CLI to make quick changes to your JSON configuration files without having to edit the file source, or even have the file locally on your machine.  This is done by making a [clone](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#clone) of a specified revision, and then specifying changes right on the CLI using JSON [dot paths](https://www.npmjs.com/package/dot-prop) like this:
+You can use the ConfSync CLI to make quick changes to your JSON configuration files without having to edit the file source, or even have the file locally on your machine.  This is done by making a [clone](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#clone) of a specified revision, and then specifying changes right on the CLI using JSON [dot paths](https://www.npmjs.com/package/dot-prop) like this:
 
 ```
 --base.features.halloween_theme true
@@ -384,7 +384,7 @@ $ confsync clone myapp --base.features.halloween_theme true --message "Enabled h
 ✅ Success: Configuration file `myapp` revision `r3` pushed by `jhuckaby`: Enabled halloween theme.
 ```
 
-Remember, to actually make our new revision live, we need to [deploy](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#deploy) it, or we could have added the `--deploy` switch to the clone command.
+Remember, to actually make our new revision live, we need to [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) it, or we could have added the `--deploy` switch to the clone command.
 
 ### Overrides
 
@@ -463,7 +463,7 @@ $ confsync group dev
  └──────────────┴───────────────┘
 ```
 
-So given all that, let's now go ahead and [push](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#push) our new config file, but this time with overrides in tow.  The overrides file is specified with the `--overrides` switch:
+So given all that, let's now go ahead and [push](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#push) our new config file, but this time with overrides in tow.  The overrides file is specified with the `--overrides` switch:
 
 ```
 $ confsync push myapp ~/temp/myapp-config.json --overrides ~/temp/myapp-overrides.json --message "Added new overrides."
@@ -496,7 +496,7 @@ $ confsync push myapp ~/temp/myapp-config.json --overrides ~/temp/myapp-override
 ✅ Success: Configuration file `myapp` revision `r4` pushed by `jhuckaby`: Added new overrides.
 ```
 
-So now, we have a new revision of our config file (`r4`) which has overrides in tow.  You can confirm this by doing a [get](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#get):
+So now, we have a new revision of our config file (`r4`) which has overrides in tow.  You can confirm this by doing a [get](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#get):
 
 ```
 $ confsync get myapp r4
@@ -543,7 +543,7 @@ Overrides JSON:
 
 As you can see, in this case both the base JSON and the overrides are displayed when fetching.
 
-When this revision is eventually [deployed](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#deploy) live, ConfSync will automatically transform it for each of your server groups.  You can get a preview of what that will look like by adding a `--group` switch to the [get](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#get) command:
+When this revision is eventually [deployed](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) live, ConfSync will automatically transform it for each of your server groups.  You can get a preview of what that will look like by adding a `--group` switch to the [get](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#get) command:
 
 ```
 $ confsync get myapp r4 --group prod
@@ -580,7 +580,7 @@ Here you can see a preview of the `prod` (Production) variant of the file, with 
 
 ### Partial Deployments
 
-In certain cases you may want to deploy a file to *some* of your target groups, but not all of them.  To do this, you can add a `--groups` switch to the [deploy](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#deploy) command, and specify them by ID, comma-separated.  Here is an example:
+In certain cases you may want to deploy a file to *some* of your target groups, but not all of them.  To do this, you can add a `--groups` switch to the [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) command, and specify them by ID, comma-separated.  Here is an example:
 
 ```
 $ confsync deploy myapp --groups dev
@@ -588,7 +588,7 @@ $ confsync deploy myapp --groups dev
 ✅ Success: Configuration file `myapp` revision `r4` deployed by `jhuckaby` to groups: dev
 ```
 
-So we've deployed the latest revision of our file (`r4`), but *only* to the `dev` group.  To see which revisions are live in which groups at any time, use the [info](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#info) command, and look at the "Deployment Info" table:
+So we've deployed the latest revision of our file (`r4`), but *only* to the `dev` group.  To see which revisions are live in which groups at any time, use the [info](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#info) command, and look at the "Deployment Info" table:
 
 ```
 $ confsync info myapp
@@ -602,7 +602,7 @@ $ confsync info myapp
  └──────────┴─────────────┴──────────┴─────────────────────┘
 ```
 
-You can also see this in the [history](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#history) command output:
+You can also see this in the [history](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#history) command output:
 
 ```
 $ confsync history myapp
@@ -630,7 +630,7 @@ Now the latest revision will be live across all of our servers.
 
 ### Gradual Deployments
 
-ConfSync supports "gradual" deployments, meaning your files will progressively install across your servers, spanning a custom time duration that you specify.  Obviously this only works effectively if you have a fair amount of servers to deploy across.  To use this feature, add a `--duration` switch to the [deploy](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#deploy) command, and specify the total number of seconds that the deploy should take.
+ConfSync supports "gradual" deployments, meaning your files will progressively install across your servers, spanning a custom time duration that you specify.  Obviously this only works effectively if you have a fair amount of servers to deploy across.  To use this feature, add a `--duration` switch to the [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) command, and specify the total number of seconds that the deploy should take.
 
 First, let's push a new revision, and make a change.  For this example we'll do a feature toggle, and enable the `features.new_layout` flag:
 
@@ -650,7 +650,7 @@ $ confsync deploy myapp --duration 600
 
 You can alternatively specify a human-readable relative time measurement, like `10m` for 10 minutes, or `2h` for 2 hours.
 
-The idea here is, each server will individually determine when it should install the file, based on a seeded random number algorithm (where the seed is based on the server's hostname).  You can check the progress of the gradual deploy by using the [info](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#info) command:
+The idea here is, each server will individually determine when it should install the file, based on a seeded random number algorithm (where the seed is based on the server's hostname).  You can check the progress of the gradual deploy by using the [info](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#info) command:
 
 ```
 $ confsync info myapp
@@ -682,4 +682,4 @@ The info table also shows you the duration alongside the date/time, if the deplo
 
 ## The End
 
-Thank you for reading.  That's the end of our basic tutorial.  For more things you can do with ConfSync, please see the [CLI Reference](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md).
+Thank you for reading.  That's the end of our basic tutorial.  For more things you can do with ConfSync, please see the [CLI Reference](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md).

@@ -4,7 +4,7 @@ This document describes the internal data structures used in ConfSync, specifica
 
 ## Table of Contents
 
-> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
+> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/main/README.md)
 
 <!-- toc -->
 - [Master Data](#master-data)
@@ -157,13 +157,13 @@ The `live` object contains a property for each of your target groups, and each o
 |---------------|------|-------------|
 | `rev` | String | The file revision number that is currently live in the group. |
 | `start` | Number | When the last deploy started, in Epoch Seconds. |
-| `duration` | Number | If the last deploy was a [gradual deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#gradual-deployments), this will contain the duration in seconds. |
+| `duration` | Number | If the last deploy was a [gradual deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#gradual-deployments), this will contain the duration in seconds. |
 
 ## File Revisions
 
 ConfSync keeps a complete revision history for each of your config files.  These are paginated lists in JSON format, with a header record and one or more page records.  Each list page includes up to 100 revisions of your file.
 
-For details on how lists work internally, see [Lists in pixl-server-storage](https://github.com/jhuckaby/pixl-server-storage/blob/master/docs/Lists.md).
+For details on how lists work internally, see [Lists in pixl-server-storage](https://github.com/jhuckaby/pixl-server-storage/blob/main/docs/Lists.md).
 
 The list header is a JSON object that looks like this:
 

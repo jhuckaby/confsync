@@ -36,13 +36,13 @@ ConfSync can be used as a basic [feature flag](https://en.wikipedia.org/wiki/Fea
 
 The documentation is split up across these files:
 
-- &rarr; **[Main Docs](https://github.com/jhuckaby/confsync/blob/master/README.md)** *(You are here)*
-- &rarr; **[Walkthrough / Tutorial](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md)**
-- &rarr; **[Advanced Topics](https://github.com/jhuckaby/confsync/blob/master/docs/Advanced.md)**
-- &rarr; **[CLI Reference](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md)**
-- &rarr; **[API Reference](https://github.com/jhuckaby/confsync/blob/master/docs/API.md)**
+- &rarr; **[Main Docs](https://github.com/jhuckaby/confsync/blob/main/README.md)** *(You are here)*
+- &rarr; **[Walkthrough / Tutorial](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md)**
+- &rarr; **[Advanced Topics](https://github.com/jhuckaby/confsync/blob/main/docs/Advanced.md)**
+- &rarr; **[CLI Reference](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md)**
+- &rarr; **[API Reference](https://github.com/jhuckaby/confsync/blob/main/docs/API.md)**
 - &rarr; **[Confsync Satellite](https://github.com/jhuckaby/confsync-satellite)**
-- &rarr; **[Internals](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md)**
+- &rarr; **[Internals](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md)**
 
 Here is the table of contents for this document:
 
@@ -126,10 +126,10 @@ Here are descriptions of all the config file properties:
 | `cmd_suggest` | Boolean | If set to true, the CLI will emit helpful command suggestions for you. |
 | `web_hooks` | Object | Optionally fire off web hooks for any or all actions.  See [Web Hooks](#web-hooks) below. |
 | `web_hook_text_templates` | Object | This section controls the text message content sent with web hooks (for things like Slack, Discord, etc.). |
-| `Storage.transactions` | Boolean | Enable or disable storage transactions.  **Please leave this enabled**, as it helps ensure data integrity in S3.  See [Storage Transactions](https://github.com/jhuckaby/pixl-server-storage/blob/master/docs/Transactions.md) for details. |
-| `Storage.trans_auto_recover` | Boolean | Automatically recover after crashes or storage errors. **Please leave this enabled**, as it helps ensure data integrity in S3.  See [Storage Transactions](https://github.com/jhuckaby/pixl-server-storage/blob/master/docs/Transactions.md) for details. |
+| `Storage.transactions` | Boolean | Enable or disable storage transactions.  **Please leave this enabled**, as it helps ensure data integrity in S3.  See [Storage Transactions](https://github.com/jhuckaby/pixl-server-storage/blob/main/docs/Transactions.md) for details. |
+| `Storage.trans_auto_recover` | Boolean | Automatically recover after crashes or storage errors. **Please leave this enabled**, as it helps ensure data integrity in S3.  See [Storage Transactions](https://github.com/jhuckaby/pixl-server-storage/blob/main/docs/Transactions.md) for details. |
 | `Storage.concurrency` | Number | The maximum number of concurrent threads to use when reading/writing to S3. |
-| `Storage.list_page_size` | Number | The number of items (revisions) per list page.  **Please do not change this.**  See [Storage Lists](https://github.com/jhuckaby/pixl-server-storage/blob/master/docs/Lists.md) if you are curious how this works. |
+| `Storage.list_page_size` | Number | The number of items (revisions) per list page.  **Please do not change this.**  See [Storage Lists](https://github.com/jhuckaby/pixl-server-storage/blob/main/docs/Lists.md) if you are curious how this works. |
 | `Storage.engine` | String | The storage engine to use.  This should be set to `S3`.  Support for other engines may be added in the future. |
 | `Storage.AWS.region` | String | The AWS region where your S3 bucket lives, e.g. `us-west-1`. |
 | `Storage.AWS.credentials.accessKeyId` | String | Your AWS access account key ID.  You can omit this if you have AWS authentication handled elsewhere (IAM, EC2, etc.). |
@@ -167,7 +167,7 @@ Type `confsync` to get help, or `confsync list` to see a list of all your groups
 
 ![ConfSync CLI](http://pixlcore.com/software/confsync/screenshots/confsync-cli.png)
 
-See the [Walkthrough / Tutorial](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md) or [CLI Reference](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md) for more details on CLI usage.
+See the [Walkthrough / Tutorial](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md) or [CLI Reference](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md) for more details on CLI usage.
 
 ## Satellite
 
@@ -183,7 +183,7 @@ Not only can ConfSync install your config files, but it can also notify your app
 
 ### PID File / Signal
 
-If your application writes out a "PID File" on startup, then ConfSync can read that file to determine your app's PID (Process ID), and send a signal to it.  Typically this will be a `SIGUSR1` or `SIGUSR2`, but it can be any signal you want.  The idea here is, you can easily add a signal listener to your app, to trigger a config file reload.  This eliminates the need to poll or watch the filesystem.  To set this up, [update](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#update) your config file with a `--pid` and `--signal` like this:
+If your application writes out a "PID File" on startup, then ConfSync can read that file to determine your app's PID (Process ID), and send a signal to it.  Typically this will be a `SIGUSR1` or `SIGUSR2`, but it can be any signal you want.  The idea here is, you can easily add a signal listener to your app, to trigger a config file reload.  This eliminates the need to poll or watch the filesystem.  To set this up, [update](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#update) your config file with a `--pid` and `--signal` like this:
 
 ```
 $ confsync update myapp --pid /var/run/myapp.pid --signal SIGUSR2
@@ -299,7 +299,7 @@ If your application has a web server, then ConfSync can send a web request to no
 
 Note that ConfSync Satellite runs on each of your servers, so the request can (and should) be on the localhost loopback adapter.  Meaning, you can fully lock down your API route, so it only accepts requests from a local IP address (`127.0.0.1` or `::1`), for security purposes.
 
-To set this up, [update](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#update) your config file with a `--webhook` URL like this:
+To set this up, [update](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#update) your config file with a `--webhook` URL like this:
 
 ```
 $ confsync update myapp --webhook "http://localhost:3000/api/config/reload"
@@ -362,7 +362,7 @@ $ confsync update myapp --webhook false
 
 ConfSync can optionally run a custom shell command whenever a file is installed on one of your servers.  This can come in handy if you want your application to be completely restarted when its config file is updated.  Note that this feature is inherently dangerous (i.e. storing shell commands in S3 that can be executed on all your servers), so it is *disabled by default* in ConfSync Satellite, and must be [explicitly enabled](https://github.com/jhuckaby/confsync-satellite#allow_shell_exec) when you install it on each of your servers.
 
-Once you have enabled the feature, you can add a shell command to your config files by calling [update](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#update) with a special `--exec` switch.  Example:
+Once you have enabled the feature, you can add a shell command to your config files by calling [update](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#update) with a special `--exec` switch.  Example:
 
 ```
 $ confsync update myapp --exec "systemctl restart myapp"
@@ -505,12 +505,12 @@ You may be tempted to configure Satellite's crontab to skip polling on weekends,
 
 ## See Also
 
-- &rarr; **[Walkthrough / Tutorial](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md)**
-- &rarr; **[Advanced Topics](https://github.com/jhuckaby/confsync/blob/master/docs/Advanced.md)**
-- &rarr; **[CLI Reference](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md)**
-- &rarr; **[API Reference](https://github.com/jhuckaby/confsync/blob/master/docs/API.md)**
+- &rarr; **[Walkthrough / Tutorial](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md)**
+- &rarr; **[Advanced Topics](https://github.com/jhuckaby/confsync/blob/main/docs/Advanced.md)**
+- &rarr; **[CLI Reference](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md)**
+- &rarr; **[API Reference](https://github.com/jhuckaby/confsync/blob/main/docs/API.md)**
 - &rarr; **[Confsync Satellite](https://github.com/jhuckaby/confsync-satellite)**
-- &rarr; **[Internals](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md)**
+- &rarr; **[Internals](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md)**
 
 ## License
 

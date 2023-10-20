@@ -4,7 +4,7 @@ This document contains advanced features, tips and tricks for ConfSync.
 
 ## Table of Contents
 
-> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
+> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/main/README.md)
 
 <!-- toc -->
 - [Features](#features)
@@ -71,7 +71,7 @@ s01.db.prod.mycompany.com
 s02.db.prod.mycompany.com
 ```
 
-Due to the fact that we're only matching partial hostnames, these example servers all match **two** groups each.  For e.g. `s01.app.dev.mycompany.com` is an application server (`.app.`), but it's also in the development environment (`.dev.`).  This is all fine, and ConfSync is designed to handle this.  Now let's take our sample app config file from the [tutorial](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md):
+Due to the fact that we're only matching partial hostnames, these example servers all match **two** groups each.  For e.g. `s01.app.dev.mycompany.com` is an application server (`.app.`), but it's also in the development environment (`.dev.`).  This is all fine, and ConfSync is designed to handle this.  Now let's take our sample app config file from the [tutorial](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md):
 
 ```json
 {
@@ -141,7 +141,7 @@ When no priority is set on a group, it defaults to `5` for the purposes of sorti
 
 ### Aborting Gradual Deploys
 
-If you started a [gradual deploy](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#gradual-deployments) but then changed your mind, or you want to quickly convert it to a full roll without having to wait out the duration, here is how.
+If you started a [gradual deploy](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#gradual-deployments) but then changed your mind, or you want to quickly convert it to a full roll without having to wait out the duration, here is how.
 
 If you change your mind and want to roll *back* a gradual deploy in progress, all you have to do is deploy the previous revision.  Example:
 
@@ -206,7 +206,7 @@ For using a non-AWS S3 provider such as [MinIO](https://min.io/), you will need 
 },
 ```
 
-Or you can use the [config](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md#config) command to configure this all on the CLI:
+Or you can use the [config](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#config) command to configure this all on the CLI:
 
 ```
 $ confsync config --Storage.AWS.endpoint "https://YOUR_MINIO_HOST:YOUR_MINIO_PORT" --Storage.AWS.forcePathStyle true --Storage.AWS.region us-west-1 --Storage.AWS.credentials.accessKeyId YOUR_ACCESS_KEY --Storage.AWS.credentials.secretAccessKey YOUR_SECRET_KEY --Storage.S3.params.Bucket YOUR_S3_BUCKET --Storage.S3.keyPrefix YOUR_S3_PREFIX

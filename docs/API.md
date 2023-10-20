@@ -4,7 +4,7 @@ This document contains a complete API reference for ConfSync, specifically for u
 
 ## Table of Contents
 
-> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/master/README.md)
+> &larr; [Return to the main document](https://github.com/jhuckaby/confsync/blob/main/README.md)
 
 <!-- toc -->
 - [Installation](#installation)
@@ -77,7 +77,7 @@ catch (err) {
 }
 ```
 
-The data format is described in [Master Data](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#master-data).
+The data format is described in [Master Data](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#master-data).
 
 ### addGroup
 
@@ -322,7 +322,7 @@ The `push` method pushes a new revision for a specific file.  ConfSync keeps the
 | `overrides` | Mixed | Optionally specify overrides, if applicable for your config.  See below for details. |
 | `username` | String | The username who is pushing the file. |
 | `message` | String | An optional short message to accompany the revision, briefly describing what changed. |
-| `deploy` | Mixed | Optionally [deploy](#deploy) the revision when pushing.  This can also be set to an array of groups for a [partial deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#partial-deployments). |
+| `deploy` | Mixed | Optionally [deploy](#deploy) the revision when pushing.  This can also be set to an array of groups for a [partial deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#partial-deployments). |
 
 Here is an example push:
 
@@ -391,8 +391,8 @@ The `deploy` method deploys a specific file revision live, meaning it actually t
 | `id` | String | **(Required)** The File ID, which should be alphanumeric plus underscore and dash. |
 | `username` | String | The username who is pushing the file. |
 | `rev` | String | The revision to deploy, e.g. `r1`.  This defaults to the latest revision of the specified file. |
-| `groups` | Array | Optionally limit the deployment to specific target groups (array of group IDs).  See [Partial Deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#partial-deployments) for details. |
-| `duration` | Mixed | Optionally perform a [Gradual Deployment](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md#gradual-deployments), by specifying the desired time duration here. |
+| `groups` | Array | Optionally limit the deployment to specific target groups (array of group IDs).  See [Partial Deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#partial-deployments) for details. |
+| `duration` | Mixed | Optionally perform a [Gradual Deployment](https://github.com/jhuckaby/confsync/blob/main/docs/Tutorial.md#gradual-deployments), by specifying the desired time duration here. |
 
 Here is an example deploy:
 
@@ -430,10 +430,10 @@ The promise resolves to an object with the following properties:
 
 | Property Name | Type | Description |
 |---------------|------|-------------|
-| `file` | Object | This is the file metadata object from the [Master Data](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#master-data). |
+| `file` | Object | This is the file metadata object from the [Master Data](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#master-data). |
 | `items` | Array | This is an array of file revisions, in the requested range.  See below. |
-| `list` | Object | This is the revision table list header.  See [File Revisions](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#file-revisions). |
-| `master` | Object | This is the [Master Data](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#master-data) object itself. |
+| `list` | Object | This is the revision table list header.  See [File Revisions](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#file-revisions). |
+| `master` | Object | This is the [Master Data](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#master-data) object itself. |
 
 Here is an example call:
 
@@ -517,9 +517,9 @@ The promise resolves to an object with the following properties:
 
 | Property Name | Type | Description |
 |---------------|------|-------------|
-| `file` | Object | This is the file metadata object from the [Master Data](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#master-data). |
+| `file` | Object | This is the file metadata object from the [Master Data](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#master-data). |
 | `item` | Object | This is the requested revision from the revision history table.  See below. |
-| `master` | Object | This is the [Master Data](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#master-data) object itself. |
+| `master` | Object | This is the [Master Data](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#master-data) object itself. |
 
 Here is an example call:
 
@@ -602,9 +602,9 @@ The promise resolves to an object with the following properties:
 
 | Property Name | Type | Description |
 |---------------|------|-------------|
-| `file` | Object | This is the file metadata object from the [Master Data](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#master-data). |
+| `file` | Object | This is the file metadata object from the [Master Data](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#master-data). |
 | `item` | Object | This is the first matched revision from the revision history table.  See below. |
-| `master` | Object | This is the [Master Data](https://github.com/jhuckaby/confsync/blob/master/docs/Internals.md#master-data) object itself. |
+| `master` | Object | This is the [Master Data](https://github.com/jhuckaby/confsync/blob/main/docs/Internals.md#master-data) object itself. |
 
 Here is an example call:
 
