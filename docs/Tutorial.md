@@ -682,4 +682,4 @@ The info table also shows you the duration alongside the date/time, if the deplo
 
 ## The End
 
-Thank you for reading.  That's the end of our basic tutorial.  For more things you can do with ConfSync, please see the [CLI Reference](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md).
+Thank you for reading.  That's the end of our basic tutorial.  For more things you can do with ConfSync, please see the [CLI Reference](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md) and [Advanced Topics](https://github.com/jhuckaby/confsync/blob/main/docs/Advanced.md).
