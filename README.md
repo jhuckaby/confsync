@@ -441,7 +441,7 @@ There are actually several actions you can hook, including a special "universal"
 | `deploy` | Fires when a file revision is deployed live. |
 | `universal` | Fires when any action occurs. | -- |
 
-For samples of each web hook JSON payload, see the [Web Hook Samples](https://github.com/jhuckaby/confsync/tree/master/docs/webhook-samples) directory.
+For samples of each web hook JSON payload, see the [Web Hook Samples](https://github.com/jhuckaby/confsync/tree/main/docs/webhook-samples) directory.
 
 The `User-Agent` header for these requests will be set to `ConfSync v#.#.#` (where `#.#.#` will be `1.0.0` or higher).
 
