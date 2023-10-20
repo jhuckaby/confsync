@@ -21,9 +21,9 @@ This document contains a tutorial / walkthrough of the ConfSync CLI, and include
 
 ## Basic Usage
 
-Here is a quick tutorial on using the ConfSync CLI.
+Here is a quick tutorial on using the ConfSync CLI.  This guide assumes you have ConfSync [installed](https://github.com/jhuckaby/confsync#setup) and [configured](https://github.com/jhuckaby/confsync#configuration), and have [ConfSync Satellite](https://github.com/jhuckaby/confsync-satellite) running on all your servers.
 
-Once you have ConfSync installed and S3 configured, do a [list](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#list) to make sure everything is working:
+First let's do a [list](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#list) to make sure everything is working:
 
 ```
 $ confsync list
@@ -150,7 +150,7 @@ $ confsync deploy myapp
 ✅ Success: Configuration file `myapp` revision `r1` deployed by `jhuckaby` to groups: dev,prod
 ```
 
-And that's it!  Our revision is now "live" across both of our groups (`dev` and `prod`) and our revision (`r1`) will actually be installed within a minute on all our servers.
+And that's it!  Our revision is now "live" across both of our groups (`dev` and `prod`) and our revision (`r1`) will actually be installed by [ConfSync Satellite](https://github.com/jhuckaby/confsync-satellite) within a minute on all our servers.
 
 Note that we didn't even have to specify a revision or which groups to deploy to.  By default, the latest revision is deployed, and if no groups are specified, all are selected.  Here are a couple variations of the [deploy](https://github.com/jhuckaby/confsync/blob/main/docs/CLI.md#deploy) command:
 
