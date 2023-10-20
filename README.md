@@ -130,7 +130,7 @@ Here are descriptions of all the config file properties:
 | `Storage.trans_auto_recover` | Boolean | Automatically recover after crashes or storage errors. **Please leave this enabled**, as it helps ensure data integrity in S3.  See [Storage Transactions](https://github.com/jhuckaby/pixl-server-storage/blob/master/docs/Transactions.md) for details. |
 | `Storage.concurrency` | Number | The maximum number of concurrent threads to use when reading/writing to S3. |
 | `Storage.list_page_size` | Number | The number of items (revisions) per list page.  **Please do not change this.**  See [Storage Lists](https://github.com/jhuckaby/pixl-server-storage/blob/master/docs/Lists.md) if you are curious how this works. |
-| `Storage.engine` | String | The storage engine to use.  This should be set to `S3`, although you could theoretically use others.  See [Storage Engines](https://github.com/jhuckaby/pixl-server-storage#engines) for details. |
+| `Storage.engine` | String | The storage engine to use.  This should be set to `S3`.  Support for other engines may be added in the future. |
 | `Storage.AWS.region` | String | The AWS region where your S3 bucket lives, e.g. `us-west-1`. |
 | `Storage.AWS.credentials.accessKeyId` | String | Your AWS access account key ID.  You can omit this if you have AWS authentication handled elsewhere (IAM, EC2, etc.). |
 | `Storage.AWS.credentials.secretAccessKey` | String | Your AWS account secret key.  You can omit this if you have AWS authentication handled elsewhere (IAM, EC2, etc.). |
@@ -165,31 +165,7 @@ Almost every configuration property can be overridden using this environment var
 
 Type `confsync` to get help, or `confsync list` to see a list of all your groups and files:
 
-```
-$ confsync list
-
-🔄 ConfSync CLI v1.0.0
-S3: jhuckaby-test/tutorial (us-west-1)
-
- Target Groups: (2)
- ┌──────────┬─────────────┬──────────┬─────────────────────┐
- │ Group ID │ Title       │ Author   │ Modified            │
- ├──────────┼─────────────┼──────────┼─────────────────────┤
- │ dev      │ Development │ jhuckaby │ 2023/10/02 4:07 PM  │
- │ prod     │ Production  │ jhuckaby │ 2023/10/09 11:39 AM │
- └──────────┴─────────────┴──────────┴─────────────────────┘
-
- Config Files: (1)
- ┌───────────┬──────────────┬─────────────────────────────┬──────────┬────────────────────┐
- │ Config ID │ Title        │ Path                        │ Author   │ Modified           │
- ├───────────┼──────────────┼─────────────────────────────┼──────────┼────────────────────┤
- │ myapp     │ My Great App │ /opt/myapp/conf/config.json │ jhuckaby │ 2023/10/11 3:31 PM │
- └───────────┴──────────────┴─────────────────────────────┴──────────┴────────────────────┘
-
-Other Command Suggestions:
-Show group info: confsync group get GROUP_ID
-Show config file info: confsync info CONFIG_ID
-```
+![ConfSync CLI](http://pixlcore.com/software/confsync/screenshots/confsync-cli.png)
 
 See the [Walkthrough / Tutorial](https://github.com/jhuckaby/confsync/blob/master/docs/Tutorial.md) or [CLI Reference](https://github.com/jhuckaby/confsync/blob/master/docs/CLI.md) for more details on CLI usage.
 

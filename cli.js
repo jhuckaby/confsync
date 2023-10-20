@@ -1208,7 +1208,9 @@ var app = {
 			println( gray.bold('No changes found.  Files are identical.') );
 		}
 		
-		println( "\n" + green("Repeat your command with " + cyan.bold("`--confirm`") + " to push to S3.") );
+		var msg = "Repeat your command with " + cyan.bold("`--confirm`") + " to push to S3.";
+		if (!req.message) msg += " Also, did you forget to add a " + cyan.bold("`--message`") + "?";
+		println( "\n" + green(msg) );
 	},
 	
 	printDiffChanges(changes) {
