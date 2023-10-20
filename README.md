@@ -462,7 +462,7 @@ You can also optionally customize the log "columns" that are written out.  By de
 
 | Log Column | Description |
 |------------|-------------|
-| `hires_epoch` | This is a high-resolution [Epoch timestamp](https://en.wikipedia.org/wiki/Unix_time) (floating point decimal). |
+| `hires_epoch` | This is a high-resolution [Epoch timestamp](https://en.wikipedia.org/wiki/Unix_time). |
 | `date` | This is a human-readable date/time stamp in the format: `YYYY-MM-DD HH:MI:SS` (in the local server timezone). |
 | `hostname` | This is the hostname of the server or PC/Mac running the ConfSync CLI / API. |
 | `pid` | This is the Process ID (PID) of the ConfSync process running on the server. |
