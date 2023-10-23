@@ -976,7 +976,8 @@ var app = {
 				if (item.raw) item.base = overrides;
 				else {
 					for (var key in overrides) {
-						Tools.setPath( item.base, key, overrides[key] );
+						if (overrides[key] === '_DELETE_') Tools.deletePath( item.base, key );
+						else Tools.setPath( item.base, key, overrides[key] );
 					}
 				}
 			}); // foreach group
@@ -1102,7 +1103,8 @@ var app = {
 					if (new_item.raw) new_item.base = new_overrides;
 					else {
 						for (var key in new_overrides) {
-							Tools.setPath( new_item.base, key, new_overrides[key] );
+							if (new_overrides[key] === '_DELETE_') Tools.deletePath( new_item.base, key );
+							else Tools.setPath( new_item.base, key, new_overrides[key] );
 						}
 					}
 				}
@@ -1112,7 +1114,8 @@ var app = {
 					if (old_item.raw) old_item.base = old_overrides;
 					else {
 						for (var key in old_overrides) {
-							Tools.setPath( old_item.base, key, old_overrides[key] );
+							if (old_overrides[key] === '_DELETE_') Tools.deletePath( old_item.base, key );
+							else Tools.setPath( old_item.base, key, old_overrides[key] );
 						}
 					}
 				}
