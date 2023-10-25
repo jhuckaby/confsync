@@ -62,14 +62,14 @@ Don't forget to also call [shutdown](#shutdown) when your app is shutting down!
 ### getData
 
 ```
-PROMISE getData() --> { data }
+PROMISE getData( PARAMS ) --> { data }
 ```
 
 The `getData` method fetches the "master data" for your ConfSync configuration.  The master data includes all the group and file definitions, but it does not include file revision history.  Example call:
 
 ```js
 try {
-	let { data } = await confsync.getData();
+	let { data } = await confsync.getData({});
 	console.log( data );
 }
 catch (err) {

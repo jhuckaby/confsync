@@ -120,7 +120,7 @@ module.exports = Class({
 		return id.toString().replace(/[^\w\-]+/g, '').toLowerCase();
 	}
 	
-	getData(callback) {
+	getData(unused, callback) {
 		// load master data, create if necessary
 		var self = this;
 		

@@ -331,7 +331,7 @@ var app = {
 	async cmd_list() {
 		// list all groups and config files
 		var self = this;
-		var { data } = await this.confsync.getData();
+		var { data } = await this.confsync.getData({});
 		
 		print( "\n " + green.bold("Target Groups: ") + gray('(' + data.groups.length + ')') + "\n" );
 		
@@ -412,7 +412,7 @@ var app = {
 		var self = this;
 		
 		var group_id = args.id || args.other.shift() || this.dieUsage('getGroup');
-		var { data } = await this.confsync.getData();
+		var { data } = await this.confsync.getData({});
 		
 		var group = Tools.findObject( data.groups, { id: group_id } );
 		if (!group) this.die("Group not found: " + group_id);
