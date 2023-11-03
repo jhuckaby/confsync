@@ -1,6 +1,6 @@
 {
 	"name": "confsync",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Manage config files in AWS S3.",
 	"author": "Joseph Huckaby <jhuckaby@gmail.com>",
 	"homepage": "https://github.com/jhuckaby/confsync",
@@ -26,7 +26,7 @@
 		"pixl-cli": "^1.0.15",
 		"pixl-logger": "^2.0.2",
 		"pixl-request": "^2.0.3",
-		"pixl-server-storage": "^3.1.17",
+		"pixl-server-storage": "^3.1.18",
 		"pixl-tools": "^1.0.35"
 	}
 }
