@@ -589,6 +589,7 @@ module.exports = Class({
 				if (!file) {
 					return self.doTransError('deploy', "File definition not found: " + data.id, trans, callback);
 				}
+				if (!file.live) file.live = {};
 				
 				// default to all groups
 				if (!data.groups) {
@@ -607,8 +608,8 @@ module.exports = Class({
 				var finish = function() {
 					// deploy now
 					data.groups.forEach( function(group_id) {
-						if (!file.live) file.live = {};
-						file.live[ group_id ] = { rev: data.rev, start: now, duration: data.duration || 0 };
+						if (data.rev === 'r0') delete file.live[ group_id ];
+						else file.live[ group_id ] = { rev: data.rev, start: now, duration: data.duration || 0 };
 					} );
 					
 					// bump mod date on file
@@ -630,7 +631,11 @@ module.exports = Class({
 					}); // putMasterData
 				}; // finish
 				
-				if (data.rev) {
+				if (data.rev === 'r0') {
+					// special value for UNrolling
+					finish();
+				}
+				else if (data.rev) {
 					// make sure rev is valid
 					trans.listFind( 'files/' + data.id, { rev: data.rev }, function(err, item, idx) {
 						if (err) return self.doTransError('deploy', "File revision not found: " + data.rev, trans, callback);

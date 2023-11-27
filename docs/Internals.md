@@ -163,7 +163,7 @@ The `live` object contains a property for each of your target groups, and each o
 
 ConfSync keeps a complete revision history for each of your config files.  These are paginated lists in JSON format, with a header record and one or more page records.  Each list page includes up to 100 revisions of your file.
 
-For details on how lists work internally, see [Lists in pixl-server-storage](https://github.com/jhuckaby/pixl-server-storage/blob/main/docs/Lists.md).
+For details on how lists work internally, see [Lists in pixl-server-storage](https://github.com/jhuckaby/pixl-server-storage/blob/master/docs/Lists.md).
 
 The list header is a JSON object that looks like this:
 
