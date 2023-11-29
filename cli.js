@@ -56,7 +56,7 @@ if (cmd.match(/^(install|uninstall)$/)) {
 			if (!fs.existsSync(temp_dir)) Tools.mkdirp(temp_dir);
 			if (fs.existsSync(config_file) && !fs.existsSync(temp_config_file)) {
 				println(`ConfSync: Backing up config to: ${temp_config_file}`);
-				cp.execSync(`mv ${config_file} ${temp_config_file}/`);
+				cp.execSync(`mv ${config_file} ${temp_config_file}`);
 			}
 			if (fs.existsSync(log_dir) && !fs.existsSync(temp_log_dir)) {
 				println(`ConfSync: Backing up logs to: ${temp_log_dir}`);
