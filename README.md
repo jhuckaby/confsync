@@ -89,7 +89,7 @@ Here are some common terms used in ConfSync:
 Use [npm](https://www.npmjs.com/) to install the ConfSync CLI:
 
 ```
-$ npm i -g confsync
+$ sudo npm i -g confsync
 ```
 
 You may need to be root or use `sudo` in order to install global commands.
@@ -479,13 +479,19 @@ To customize the log columns, include a top-level `log_columns` property in your
 
 ## Upgrading
 
-To upgrade ConfSync, simply repeat the original NPM install command:
+To upgrade ConfSync, first backup your config and logs using the following command (or else NPM will wipe them out!):
 
-```
-npm i -g confsync
+```sh
+confsync uninstall
 ```
 
-This will install the latest version, and it will preserve your `config.json` file.  Note that the command may need to be executed as root or with `sudo`.
+Then repeat the original NPM install command:
+
+```sh
+sudo npm i -g confsync
+```
+
+This will install the latest version, and it will restore your previously backed up `config.json` file and logs.  Note that the command may need to be executed as root or with `sudo`.
 
 ## Estimated S3 Costs
 
