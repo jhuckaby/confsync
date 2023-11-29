@@ -32,6 +32,41 @@ for (var key in cli.args) {
 if (!args.other || !args.other.length || args.help || args.h) args.other = ['help'];
 var cmd = args.other.shift().toLowerCase();
 
+if (cmd.match(/^(install|uninstall)$/)) {
+	// special npm scripts to save/restore config/logs during upgrade
+	var temp_dir = Path.join( os.tmpdir(), 'confsync' );
+	var temp_config_file = Path.join(temp_dir, 'config.json');
+	var temp_log_dir = Path.join(temp_dir, 'logs');
+	var config_file = Path.join(__dirname, 'config.json');
+	var log_dir = Path.join(__dirname, 'logs');
+	
+	switch (cmd) {
+		case 'install':
+			if (fs.existsSync(temp_config_file) && !fs.existsSync(config_file)) {
+				println(`ConfSync: Restoring previous config: ${temp_config_file}`);
+				cp.execSync(`mv ${temp_config_file} ${config_file}`);
+			}
+			if (fs.existsSync(temp_log_dir) && !fs.existsSync(log_dir)) {
+				println(`ConfSync: Restoring previous logs: ${temp_log_dir}`);
+				cp.execSync(`mv ${temp_log_dir} ${log_dir}`);
+			}
+		break;
+		
+		case 'uninstall':
+			if (!fs.existsSync(temp_dir)) Tools.mkdirp(temp_dir);
+			if (fs.existsSync(config_file) && !fs.existsSync(temp_config_file)) {
+				println(`ConfSync: Backing up config to: ${temp_config_file}`);
+				cp.execSync(`mv ${config_file} ${temp_config_file}/`);
+			}
+			if (fs.existsSync(log_dir) && !fs.existsSync(temp_log_dir)) {
+				println(`ConfSync: Backing up logs to: ${temp_log_dir}`);
+				cp.execSync(`mv ${log_dir} ${temp_log_dir}`);
+			}
+		break;
+	}
+	process.exit(0);
+}
+
 var USERNAME = process.env.CONFSYNC_username || process.env.SUDO_USER || process.env.USER || process.env.USERNAME || '';
 var DATE_FMT = '[yyyy]/[mm]/[dd] [hour12]:[mi] [AMPM]';
 
