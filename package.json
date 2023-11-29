@@ -1,6 +1,6 @@
 {
 	"name": "confsync",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"description": "Manage config files in AWS S3.",
 	"author": "Joseph Huckaby <jhuckaby@gmail.com>",
 	"homepage": "https://github.com/jhuckaby/confsync",
