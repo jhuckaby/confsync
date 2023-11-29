@@ -53,7 +53,7 @@ if (cmd.match(/^(install|uninstall)$/)) {
 		break;
 		
 		case 'uninstall':
-			if (!fs.existsSync(temp_dir)) Tools.mkdirp(temp_dir);
+			if (!fs.existsSync(temp_dir)) Tools.mkdirp.sync(temp_dir);
 			if (fs.existsSync(config_file) && !fs.existsSync(temp_config_file)) {
 				println(`ConfSync: Backing up config to: ${temp_config_file}`);
 				cp.execSync(`mv ${config_file} ${temp_config_file}`);
