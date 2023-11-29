@@ -13,7 +13,6 @@ const Tools = require('pixl-tools');
 const highlight = require('cli-highlight').highlight;
 const Diff = require('diff');
 const JSON5 = require('json5');
-const ConfSync = require('.');
 
 cli.global();
 
@@ -66,6 +65,8 @@ if (cmd.match(/^(install|uninstall)$/)) {
 	}
 	process.exit(0);
 }
+
+const ConfSync = require('.');
 
 var USERNAME = process.env.CONFSYNC_username || process.env.SUDO_USER || process.env.USER || process.env.USERNAME || '';
 var DATE_FMT = '[yyyy]/[mm]/[dd] [hour12]:[mi] [AMPM]';
