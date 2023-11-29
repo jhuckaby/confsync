@@ -34,7 +34,7 @@ var cmd = args.other.shift().toLowerCase();
 
 if (cmd.match(/^(install|uninstall)$/)) {
 	// special npm scripts to save/restore config/logs during upgrade
-	var temp_dir = Path.join( os.tmpdir(), 'confsync' );
+	var temp_dir = Path.join( os.tmpdir(), 'confsync', 'backup' );
 	var temp_config_file = Path.join(temp_dir, 'config.json');
 	var temp_log_dir = Path.join(temp_dir, 'logs');
 	var config_file = Path.join(__dirname, 'config.json');
