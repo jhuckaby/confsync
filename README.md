@@ -4,7 +4,7 @@
 
 The expectation is that your application will "hot reload" its configuration files when ConfSync updates them.  If your app doesn't support this kind of thing, then you can have ConfSync "notify" your app to reload, via a custom signal sent to your process, a localhost web request, or a shell command.
 
-ConfSync can be used as a basic [feature flag](https://en.wikipedia.org/wiki/Feature_toggle) system, as you can toggle JSON properties on/off as part of config updates.  However, this is really rudimentary.  If you need professional feature flagging, please check out [LaunchDarkly](https://launchdarkly.com/), [DevCycle](https://devcycle.com/), [GrowthBook](https://www.growthbook.io/), or [FlagSmith](https://www.flagsmith.com/), as they are a thousand times better than ConfSync.
+ConfSync can be used as a basic [feature flag](https://en.wikipedia.org/wiki/Feature_toggle) system, as you can toggle JSON properties on/off as part of config updates.  However, this is really rudimentary.  If you need professional feature flagging, please check out [LaunchDarkly](https://launchdarkly.com/), [DevCycle](https://devcycle.com/), [GrowthBook](https://www.growthbook.io/), or [FlagSmith](https://www.flagsmith.com/), as they are much more feature-rich.
 
 ### Features
 
